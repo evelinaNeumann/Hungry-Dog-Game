@@ -1,6 +1,7 @@
 import { Player } from "./player.js";
 import { InputHandler } from "./input.js";
 import { Background } from "./background.js";
+import { GroundEnemy } from "./enemies.js";
 /*load event provides, that Js waits for all dependent resouces such as stylesheets an d images
 to be fully loaded and available before it runs.*/
 window.addEventListener("load", function () {
@@ -20,15 +21,34 @@ window.addEventListener("load", function () {
       this.player = new Player(this);
       /*here keyword "this" means this game class*/
       this.input = new InputHandler();
-      
+      this.enemies = [];
+      this.enemyTimer = 0;
+      this.enemyInterval = 1000;
     }
     update(deltaTime) {
       this.background.update();
       this.player.update(this.input.keys, deltaTime);
+      //handle Enemies
+      if (this.enemyTimer>this.enemyInterval){
+        this.addEnemy();
+        this.enemyTimer = 0;
+      }else{
+        this.enemyTimer +=deltaTime;
+      }
+      this.enemies.forEach(enemy=> {
+        enemy.update(deltaTime);
+      });
     }
     draw(context) {
       this.background.draw(context);
       this.player.draw(context);
+      this.enemies.forEach(enemy=> {
+        enemy.draw(context);
+      });
+    }
+    addEnemy(){
+        this.enemies.push(new GroundEnemy(this))
+         console.log(this.enemies);
     }
   }
 

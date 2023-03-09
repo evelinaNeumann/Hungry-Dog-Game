@@ -26,15 +26,16 @@ class Enemy {
     }
 }
 
-class GroundEnemy extends Enemy {
+export class GroundEnemy extends Enemy {
      constructor (game){
         super();
         this.game=game;
-        this.width = 40;
-        this.height = 60;
-        this.x = 0;
-        this.y = 0;
+        this.width = 240;
+        this.height = 260;
+        this.x = 820;
+        this.y = 820;
         this.speedX = 2;
+        this.speedY = 0;
         this.maxFrame = 5;
         this.image = document.getElementById('enemy_egg');
      }
