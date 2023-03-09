@@ -7,14 +7,14 @@ window.addEventListener("load", function () {
   const canvas = document.getElementById("canvas1");
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.height = 1200;
 /*"class" is a speciall type of method in js, it get's automatically executed, 
 //when we call this class using the keyword */
   class Game {
     constructor(width, height) {
       this.width = width;
       this.height = height;
-      this.groundMargin = 50;
+      this.groundMargin = 150;
       this.speed = 3;
       this.background = new Background (this);
       this.player = new Player(this);
