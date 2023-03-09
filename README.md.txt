@@ -6,6 +6,6 @@ In this game, the player controls a dog character who must collect food items wh
 
 Completed: the player character has been completed;
 
-Current task: he current task is to work on the moving background;
+Current task: he current task is to work on the Parallax background;
 
 Next task: to create the enemy character.
