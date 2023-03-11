@@ -6,8 +6,9 @@ In this game, the player controls a dog character who must collect food items wh
 
 Completed: creating the player character with state managment has been completed;
            the Parallax background is completed;
+           the enemy character is created (enemy appearence needs approvement).
 
-Current task: to create the enemy character.
+Current task: to create collusion with an enemy
 
 Next task: to create the condition for the level ending (1 min Time)
            create Counter for how many food has been eated.

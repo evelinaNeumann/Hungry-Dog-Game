@@ -7,7 +7,7 @@ to be fully loaded and available before it runs.*/
 window.addEventListener("load", function () {
   const canvas = document.getElementById("canvas1");
   const ctx = canvas.getContext("2d");
-  canvas.width = window.innerWidth;
+  canvas.width = 1400;
   canvas.height = 1200;
 /*"class" is a speciall type of method in js, it get's automatically executed, 
 //when we call this class using the keyword */
@@ -21,7 +21,7 @@ window.addEventListener("load", function () {
       this.player = new Player(this);
       /*here keyword "this" means this game class*/
       this.input = new InputHandler();
-      this.enemies = [];
+      this.enemies = [];//holds all currently active enemie objects
       this.enemyTimer = 0;
       this.enemyInterval = 1000;
     }
@@ -37,6 +37,7 @@ window.addEventListener("load", function () {
       }
       this.enemies.forEach(enemy=> {
         enemy.update(deltaTime);
+        if(enemy.markedForDeletion)this.enemies.splice(this.enemies.indexOf(enemy),1);
       });
     }
     draw(context) {
@@ -47,7 +48,7 @@ window.addEventListener("load", function () {
       });
     }
     addEnemy(){
-        this.enemies.push(new GroundEnemy(this))
+      if(this.speed > 0 && Math.random() < 0.5) this.enemies.push(new GroundEnemy(this));               
          console.log(this.enemies);
     }
   }
