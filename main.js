@@ -2,6 +2,7 @@ import { Player } from "./player.js";
 import { InputHandler } from "./input.js";
 import { Background } from "./background.js";
 import { GroundEnemy } from "./enemies.js";
+import { UI } from "./UI.js";
 /*load event provides, that Js waits for all dependent resouces such as stylesheets an d images
 to be fully loaded and available before it runs.*/
 window.addEventListener("load", function () {
@@ -21,11 +22,13 @@ window.addEventListener("load", function () {
       this.player = new Player(this);
       /*here keyword "this" means this game class*/
       this.input = new InputHandler(this);
+      this.UI = new UI(this);
       this.enemies = [];//holds all currently active enemie objects
       this.enemyTimer = 0;
       this.enemyInterval = 1000;
       this.debug = true;
       this.score = 0;
+      this.fontColor = 'fuchsia';
     }
     update(deltaTime) {
       this.background.update();
@@ -48,6 +51,7 @@ window.addEventListener("load", function () {
       this.enemies.forEach(enemy=> {
         enemy.draw(context);
       });
+      this.UI.draw(context);
     }
     addEnemy(){
       if(this.speed > 0 && Math.random() < 0.3) this.enemies.push(new GroundEnemy(this));               
