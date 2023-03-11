@@ -20,10 +20,12 @@ window.addEventListener("load", function () {
       this.background = new Background (this);
       this.player = new Player(this);
       /*here keyword "this" means this game class*/
-      this.input = new InputHandler();
+      this.input = new InputHandler(this);
       this.enemies = [];//holds all currently active enemie objects
       this.enemyTimer = 0;
       this.enemyInterval = 1000;
+      this.debug = true;
+      this.score = 0;
     }
     update(deltaTime) {
       this.background.update();
@@ -48,7 +50,7 @@ window.addEventListener("load", function () {
       });
     }
     addEnemy(){
-      if(this.speed > 0 && Math.random() < 0.5) this.enemies.push(new GroundEnemy(this));               
+      if(this.speed > 0 && Math.random() < 0.3) this.enemies.push(new GroundEnemy(this));               
          console.log(this.enemies);
     }
   }
