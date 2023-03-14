@@ -10,12 +10,13 @@ Completed: creating the player character with state managment has been completed
            created collusion with an enemy;
            created rolling state;
            created score;
+           created game time display;
+           created winning and losing conditions;
+           added final message
 
-Current task: creating collusion condition in the rolling state
+Current task: adding collusion animation;
 
-Next task: to create the condition for the level ending (1 min Time)
-           adding more types of enemies
-           changing enemies images
+Next task: adding more types of enemies
            adding sounds
-           adding front and last pages
-           
+           adding front page
+           changing enemies images
