@@ -29,11 +29,18 @@ window.addEventListener("load", function () {
       this.debug = true;
       this.score = 0;
       this.fontColor = 'fuchsia';
+      this.time = 0;
+      this.maxTime = 20000;
+      this.gameOver = false;
     }
     update(deltaTime) {
+      this.time +=deltaTime;
+      if (this.time > this.maxTime) this.gameOver = true;
       this.background.update();
       this.player.update(this.input.keys, deltaTime);
       //handle Enemies
+      /*delta time is the difference between the time stand from this animation frame and the time stand
+      //from the previous one*/
       if (this.enemyTimer>this.enemyInterval){
         this.addEnemy();
         this.enemyTimer = 0;
@@ -72,7 +79,7 @@ window.addEventListener("load", function () {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     game.update(deltaTime);
     game.draw(ctx);
-    requestAnimationFrame(animate);
+    if (!game.gameOver) requestAnimationFrame(animate);
   }
 
   animate(0);
