@@ -22,7 +22,7 @@ export class UI {
                 context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
                 context.fillText ('Only a true warrior knows the taste of victory!', this.game.width * 0.5, this.game.height*0.5 + 20);
             } else {
-                context.fillText ('TO bad', this.game.width * 0.5, this.game.height*0.5 - 20);
+                context.fillText ('TOO bad', this.game.width * 0.5, this.game.height*0.5 - 20);
                 context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
                 context.fillText ('If you snooze you lose', this.game.width * 0.5, this.game.height*0.5 + 20);
 

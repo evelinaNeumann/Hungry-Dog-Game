@@ -1,7 +1,7 @@
 import { Player } from "./player.js";
 import { InputHandler } from "./input.js";
 import { Background } from "./background.js";
-import { GroundEnemy } from "./enemies.js";
+import { FlyingEnemy, GroundEnemy } from "./enemies.js";
 import { UI } from "./UI.js";
 /*load event provides, that Js waits for all dependent resouces such as stylesheets an d images
 to be fully loaded and available before it runs.*/
@@ -28,7 +28,7 @@ window.addEventListener("load", function () {
       this.maxParticles = 80;
       this.enemyTimer = 0;
       this.enemyInterval = 1000;
-      this.debug = true;
+      this.debug = false;
       this.score = 0;
       this.fontColor = 'fuchsia';
       this.player.currentState=this.player.states[0];
@@ -38,13 +38,13 @@ window.addEventListener("load", function () {
       this.gameOver = false;
     }
     update(deltaTime) {
+      /*delta time is the difference between the time stand from this animation frame and the time stand
+      //from the previous one*/
       this.time +=deltaTime;
       if (this.time > this.maxTime) this.gameOver = true;
       this.background.update();
       this.player.update(this.input.keys, deltaTime);
-      //handle Enemies
-      /*delta time is the difference between the time stand from this animation frame and the time stand
-      //from the previous one*/
+      //handle Enemies      
       if (this.enemyTimer>this.enemyInterval){
         this.addEnemy();
         this.enemyTimer = 0;
@@ -76,7 +76,10 @@ window.addEventListener("load", function () {
       this.UI.draw(context);
     }
     addEnemy(){
-      if(this.speed > 0 && Math.random() < 0.3) this.enemies.push(new GroundEnemy(this));               
+      if(this.speed > 0 && Math.random() < 0.5) this.enemies.push(new GroundEnemy(this));
+      this.enemies.push(new FlyingEnemy(this))
+      
+      console.log(this.enemies);               
          
     }
   }

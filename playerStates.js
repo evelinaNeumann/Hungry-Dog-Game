@@ -49,7 +49,7 @@ export class Running extends State{
  
     }
     handleInput(input){
-      this.game.particles.push(new Dust(this.game, this.game.player.x + this.game.player.width * 0.5,
+      this.game.particles.unshift(new Dust(this.game, this.game.player.x + this.game.player.width * 0.5,
           this.game.player.y + this.game.player.height));
       if (input.includes('ArrowDown')){
          this.game.player.setState(states.SITTING);
@@ -94,7 +94,7 @@ export class Jumping extends State{
     }
     handleInput(input){
       if (this.game.player.onGround()){
-         this.game.player.setState(states.RUNNING);
+         this.game.player.setState(states.RUNNING, 1);
       }
     }
  }
@@ -109,7 +109,7 @@ export class Jumping extends State{
 
    }
    handleInput(input){
-      this.game.particles.push(new Fire(this.game, this.game.player.x + this.game.player.width * 0.5,
+      this.game.particles.unshift(new Fire(this.game, this.game.player.x + this.game.player.width * 0.5,
          this.game.player.y + this.game.player.height*0.5));
      if (!input.includes('Enter') && this.game.player.onGround()){
         this.game.player.setState(states.RUNNING, 1);
