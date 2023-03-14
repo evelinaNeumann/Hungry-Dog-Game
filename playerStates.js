@@ -1,4 +1,4 @@
-import { Dust } from "./particles.js";
+import { Dust, Fire } from "./particles.js";
 
 /* a simple emun object, it pairs the values and names of each state
 //It helps with code readability*/
@@ -109,6 +109,8 @@ export class Jumping extends State{
 
    }
    handleInput(input){
+      this.game.particles.push(new Fire(this.game, this.game.player.x + this.game.player.width * 0.5,
+         this.game.player.y + this.game.player.height*0.5));
      if (!input.includes('Enter') && this.game.player.onGround()){
         this.game.player.setState(states.RUNNING, 1);
      }else if (!input.includes('Enter') && !this.game.player.onGround()){
