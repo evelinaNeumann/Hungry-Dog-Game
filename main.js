@@ -35,8 +35,10 @@ window.addEventListener("load", function () {
       this.player.currentState=this.player.states[0];
       this.player.currentState.enter();
       this.time = 0;
-      this.maxTime = 20000;
+      this.maxTime = 10000;
       this.gameOver = false;
+      this.jumpSound = new Audio ();
+      this.jumpSound.src = './Project resoureces/Sounds/jump.wav';
     }
     update(deltaTime) {
       /*delta time is the difference between the time stand from this animation frame and the time stand

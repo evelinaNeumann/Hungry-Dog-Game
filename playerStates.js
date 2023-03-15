@@ -70,6 +70,7 @@ export class Jumping extends State{
         this.game.player.frameX = 0;
         this.game.player.maxFrame=6;
         this.game.player.frameY=2;
+        this.game.jumpSound.play();
  
     }
     handleInput(input){
