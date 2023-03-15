@@ -1,4 +1,5 @@
-import {Sitting, Running, Jumping, Falling, Rolling } from "./playerStates.js";
+import {Sitting, Running, Jumping, Falling, Rolling, Diving } from "./playerStates.js";
+import { CollisionAnimation } from "./collisionAnimation.js";
 
 export class Player {
   constructor(game) {
@@ -20,7 +21,8 @@ export class Player {
     this.frameTimer = 0;
     this.speed = 0;
     this.maxSpeed = 10;
-    this.states = [new Sitting(this.game), new Running(this.game), new Jumping(this.game), new Falling(this.game), new Rolling(this.game)];
+    this.states = [new Sitting(this.game), new Running(this.game), new Jumping(this.game),
+       new Falling(this.game), new Rolling(this.game), new Diving(this.game)];
    }
   update(input, deltaTime) {
     this.checkCollision();
@@ -31,6 +33,7 @@ export class Player {
     else if (input.includes("ArrowLeft")) this.speed = -this.maxSpeed;
     /*movement stopps if the array doesn't receive arrowright or arrowleft input */
     else this.speed = 0;
+    //horizontal movement
     /*left edge boundary*/
     if (this.x < 0) this.x = 0;
     /*right edge boundary*/
@@ -46,6 +49,9 @@ export class Player {
     /*when the player is back on the ground, velocity needs to be set on 0
     //in purpouse not to go througtht the bottom edge of the playground */
     else this.vy = 0;
+    //vertical boundaries
+    if (this.y > this.game.height - this.height - this.game.groundMargin) this.y =
+    this.game.height - this.height - this.game.groundMargin;
     /*Sprite Animation */
     if (this.frameTimer > this.frameInterval){
         this.frameTimer = 0;
@@ -81,6 +87,8 @@ export class Player {
         enemy.y + enemy.height > this.y
     ){
       enemy.markedForDeletion = true;
+      this.game.collisions.push(new CollisionAnimation(this.game, enemy.x + enemy.width*0.5, 
+      enemy.y + enemy.height*0.5));
       this.game.score++;  
       }else{
       //no collision

@@ -13,12 +13,13 @@ Completed: creating the player character with state managment has been completed
            created score;
            created game time display;
            created winning and losing conditions;
-           added final message
+           added final message;
            added particles animation in running and rolling states;
 
-Current task: adding more types of enemies;
+           added flying enemy;
+           approved the graphics for the egg enemy
+           collision animation added
+           adjusted text styles
 
-Next task: adding sounds
-           adding front page
-           changing enemies images
-           final polish
+Current task: adding sounds
+Next task: final polish
