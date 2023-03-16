@@ -24,7 +24,7 @@ export class UI {
             // set the stroke color and width
             context.strokeStyle = 'black';
             context.lineWidth = 5;
-            if (this.game.score > 1) {
+            if (this.game.score > 40) {
                 // set the fill color to yellow
                 context.fillStyle = 'rgb(255, 168, 30)';
                 context.fillText ('Great!', this.game.width * 0.5, this.game.height*0.5 - 20);
