@@ -8,7 +8,7 @@ to be fully loaded and available before it runs.*/
 window.addEventListener("load", function () {
   const canvas = document.getElementById("canvas1");
   const ctx = canvas.getContext("2d");
-  canvas.width = 2200;
+  canvas.width = 1700;
   canvas.height = 1200;
 /*"class" is a speciall type of method in js, it get's automatically executed, 
 //when we call this class using the keyword */
@@ -38,7 +38,7 @@ window.addEventListener("load", function () {
       this.maxTime = 10000;
       this.gameOver = false;
       this.jumpSound = new Audio ();
-      this.jumpSound.src = './Project resoureces/Sounds/jump.wav';
+      this.jumpSound.src = './project_resources/Sounds/jump.wav';
     }
     update(deltaTime) {
       /*delta time is the difference between the time stand from this animation frame and the time stand
