@@ -38,7 +38,7 @@ window.addEventListener("load", function () {
       this.maxTime = 10000;
       this.gameOver = false;
       this.jumpSound = new Audio ();
-      this.jumpSound.src = './project_resources/Sounds/jump.wav';
+      this.jumpSound.src = './project_resoureces/Sounds/jump.wav';
     }
     update(deltaTime) {
       /*delta time is the difference between the time stand from this animation frame and the time stand
