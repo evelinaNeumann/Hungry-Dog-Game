@@ -8,7 +8,7 @@ to be fully loaded and available before it runs.*/
 window.addEventListener("load", function () {
   const canvas = document.getElementById("canvas1");
   const ctx = canvas.getContext("2d");
-  canvas.width = 1400;
+  canvas.width = 2200;
   canvas.height = 1200;
 /*"class" is a speciall type of method in js, it get's automatically executed, 
 //when we call this class using the keyword */

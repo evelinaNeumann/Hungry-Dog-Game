@@ -24,17 +24,18 @@ export class UI {
             // set the stroke color and width
             context.strokeStyle = 'black';
             context.lineWidth = 5;
-
-            if (this.game.score > 50) {
+            if (this.game.score > 1) {
                 // set the fill color to yellow
-                context.fillStyle = 'yellow';
-                context.fillText ('Great', this.game.width * 0.5, this.game.height*0.5 - 20);
-
-                context.font = this.fontSize * 0.95 + 'px ' + this.fontFamily;
-                // set the fill color to white
-                context.fillStyle = 'white';
+                context.fillStyle = 'rgb(255, 168, 30)';
+                context.fillText ('Great!', this.game.width * 0.5, this.game.height*0.5 - 20);
+                context.font = this.fontSize * 0.95 + 'px ' + this.fontFamily;                
                 context.fillText ('Only a true warrior knows the taste of victory!', this.game.width * 0.5, 
                 this.game.height*0.5 + 50);
+                // Add black contour to the text
+                context.strokeText('Great!', this.game.width * 0.5, this.game.height*0.5 - 20);
+                context.strokeText('Only a true warrior knows the taste of victory!', this.game.width * 0.5,
+                this.game.height*0.5 + 60);
+                context.lineWidth = 8;
 
             } else {
                 // set the fill color to yellow
